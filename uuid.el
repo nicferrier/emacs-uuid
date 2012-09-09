@@ -6,7 +6,7 @@
 ;; Maintainer: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Keywords: lisp
 ;; Created: 5th September 2008
-;; Version: 0.0.1
+;; Version: 0.0.2
 
 ;; This file is free software
 
@@ -23,7 +23,7 @@
 
 ;;; Code:
 
-(require 'cl-macs)
+(require 'cl)
 (require 'calc-comb)
 
 (defun uuid-create ()
@@ -35,7 +35,7 @@ wackos."
   (let ((bits 
 	 (apply           ; Note: Could use bit-vector under xemacs,
 	  'vector 	  ; but gnuemacs doesn't have it.
-	  (cl-loop for i upto 127 collect (uuid-random-bit)))))
+	  (loop for i upto 127 collect (uuid-random-bit)))))
     ;; Version field: byte 7, bits 7-4
     (aset bits 60 0)
     (aset bits 61 1)
@@ -55,7 +55,7 @@ wackos."
   (let* ((lsb (* bytenum 8))
 		 (msb (+ lsb 7))
 		 (val 0))
-	(cl-loop for bitnum from lsb to msb do
+	(loop for bitnum from lsb to msb do
 	      (let ((bit (aref uuid bitnum)))
 		(setq val (+ bit (lsh val 1)))))
 	val))
