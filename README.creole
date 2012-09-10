@@ -11,9 +11,11 @@ Using version 4 (random) because it's likely easiest to
 implement, plus it satisifies the privicy concerns of
 wackos.
 
-
 === uuid-to-stringy uuid ===
 
 Convert //uuid// to a string
 
+=== uuid-string  ===
+
+Make a string form of a UUID directly.
 

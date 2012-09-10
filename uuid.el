@@ -6,7 +6,7 @@
 ;; Maintainer: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Keywords: lisp
 ;; Created: 5th September 2008
-;; Version: 0.0.2
+;; Version: 0.0.3
 
 ;; This file is free software
 
@@ -85,6 +85,11 @@ wackos."
 	  (uuid-get-byte uuid 13)
 	  (uuid-get-byte uuid 14)
 	  (uuid-get-byte uuid 15)))
+
+
+(defun uuid-string ()
+  "Make a string form of a UUID directly."
+  (uuid-to-stringy (uuid-create)))
 
 (defun uuid-to-win32 (uuid)
   (format "{%s}" (uuid-to-stringy uuid)))
