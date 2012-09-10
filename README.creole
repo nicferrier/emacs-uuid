@@ -1,0 +1,19 @@
+EmacsLisp interface to UUIDs.
+
+There are only 2 functions that are useful for general Elisp
+programming:
+
+=== uuid-create  ===
+
+Create a new UUID object.
+
+Using version 4 (random) because it's likely easiest to
+implement, plus it satisifies the privicy concerns of
+wackos.
+
+
+=== uuid-to-stringy uuid ===
+
+Convert //uuid// to a string
+
+
